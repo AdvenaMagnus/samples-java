@@ -11,8 +11,8 @@ import static junit.framework.TestCase.*;
  */
 public class LinkedListsTest {
 
-    LinkedListCustom listWithDuplicates;
-    LinkedListCustom listWithDuplicates2;
+    LinkedListCustom<Integer> listWithDuplicates;
+    LinkedListCustom<Integer> listWithDuplicates2;
 
     @Before
     public void initLists(){
@@ -34,6 +34,16 @@ public class LinkedListsTest {
 
         listWithDuplicates2.removeDuplicates();
         assertTrue(listWithDuplicates2.length==3);
+    }
+
+    @Test
+    public void asArrayTest(){
+        Object[] values2 = listWithDuplicates2.asArray();
+        assertTrue(values2[0]==(Integer)1);
+        assertTrue(values2[1]==(Integer)2);
+        assertTrue(values2[2]==(Integer)2);
+        assertTrue(values2[3]==(Integer)3);
+
     }
 
 }

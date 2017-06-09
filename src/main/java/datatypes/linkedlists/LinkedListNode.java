@@ -3,16 +3,16 @@ package datatypes.linkedlists;
 /**
  * Created by Alexander on 31.05.2017.
  */
-public class LinkedListNode {
+public class LinkedListNode<T> {
 
-    int intVlaue;
+    T value;
     LinkedListNode next;
 
-    public int getIntVlaue() {
-        return intVlaue;
+    public T getValue() {
+        return value;
     }
-    public void setIntVlaue(int intVlaue) {
-        this.intVlaue = intVlaue;
+    public void setValue(T value) {
+        this.value = value;
     }
 
     public LinkedListNode getNext() {
