@@ -1,4 +1,6 @@
-package datatypes.linkedlists;
+package datatypes.linkedlists.utils;
+
+import datatypes.linkedlists.LinkedListCustom;
 
 /**
  * Created by Alexander on 31.05.2017.

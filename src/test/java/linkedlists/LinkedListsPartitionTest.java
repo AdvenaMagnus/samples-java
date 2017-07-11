@@ -1,7 +1,7 @@
 package linkedlists;
 
 import datatypes.linkedlists.LinkedListCustom;
-import datatypes.linkedlists.LinkedListUtils;
+import datatypes.linkedlists.utils.LinkedListUtils;
 import org.junit.Before;
 import org.junit.Test;
 
