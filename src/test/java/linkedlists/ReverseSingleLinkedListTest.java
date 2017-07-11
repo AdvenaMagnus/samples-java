@@ -27,7 +27,7 @@ public class ReverseSingleLinkedListTest {
             assertTrue((Integer)iterator.getValue()==i);
             iterator= iterator.getNext();
         }
-        assertTrue(list!=null);
+        assertTrue(list==listReversed);
     }
 
     @Test
@@ -43,6 +43,7 @@ public class ReverseSingleLinkedListTest {
             assertTrue((Integer)iterator.getValue()==i);
             iterator= iterator.getNext();
         }
+        assertTrue(list==listReversed);
     }
 
 

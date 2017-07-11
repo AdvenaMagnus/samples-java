@@ -19,13 +19,9 @@ public class ReverseSingleLinkedList {
                 previous = current;
                 current = next;
             }
-            LinkedListCustom result = new LinkedListCustom();
-            result.setTop(previous);
-            result.length = list.length;
-            return result;
-        } else {
-            return list;
+            list.setTop(previous);
         }
+        return list;
     }
 
 
