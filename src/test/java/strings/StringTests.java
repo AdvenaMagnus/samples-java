@@ -1,4 +1,4 @@
-package arraystrings;
+package strings;
 
 import datatypes.arraystrings.ArrayUtils;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import static junit.framework.TestCase.*;
 /**
  * Created by Alexander on 31.05.2017.
  */
-public class ArrayStringTests {
+public class StringTests {
 
     @Test
     public void isAllUniqueTest(){
