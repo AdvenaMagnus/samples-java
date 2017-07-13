@@ -44,4 +44,16 @@ public class StringTests {
         assertFalse(ArrayUtils.isOneStepFromEdit("pale", "paleta"));
     }
 
+    @Test
+    public void compressSameTest(){
+        assertEquals("a2c", ArrayUtils.compressSame("aac"));
+        assertEquals("abc", ArrayUtils.compressSame("abc"));
+        assertEquals("ab3c", ArrayUtils.compressSame("abbbc"));
+        assertEquals("ab3c2", ArrayUtils.compressSame("abbbcc"));
+        assertEquals("ab3cd3", ArrayUtils.compressSame("abbbcddd"));
+        assertEquals("ab3cd3a2", ArrayUtils.compressSame("abbbcdddaa"));
+        assertEquals("a", ArrayUtils.compressSame("a"));
+        assertEquals("a2", ArrayUtils.compressSame("aa"));
+    }
+
 }

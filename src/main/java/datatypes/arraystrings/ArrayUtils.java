@@ -2,6 +2,7 @@ package datatypes.arraystrings;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Created by Alexander on 31.05.2017.
@@ -108,4 +109,42 @@ public class ArrayUtils {
         }
         return true;
     }
+
+    /** CtCI 1.6
+     * Implement a method to perform basic string compression using the counts
+     of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the
+     "compressed" string would not become smaller than the original string, your method should return
+     the original string. You can assume the string has only uppercase and lowercase letters (a - z).
+     * */
+    public static String compressSame(String str){
+        HashMap<Character, Integer> charCounter = new HashMap<Character, Integer>();
+        char prev=str.charAt(0);
+        StringBuilder result = new StringBuilder();
+
+        for(char c: str.toCharArray()){
+            if(charCounter.get(c)==null){
+                charCounter.put(c, 1);
+            } else {
+                charCounter.put(c, charCounter.get(c)+1);
+            }
+
+            if(prev!=c){
+                result.append(getStringToAppend(charCounter, prev));
+                charCounter.put(prev, 0);
+            }
+            prev=c;
+        }
+
+        result.append(getStringToAppend(charCounter, prev));
+        return result.toString();
+    }
+
+    public static String getStringToAppend(HashMap<Character, Integer> charCounter, char c){
+        int count = charCounter.get(c);
+        if(count>1){
+            return ""+c+count;
+        }
+        return ""+c;
+    }
+
 }
