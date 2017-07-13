@@ -13,17 +13,18 @@ public class ArrayUtils {
      cannot use additional data structures?
      */
     public static boolean isAllUniqe(String str){
-        for(int i=0; i<str.length(); i++){
-            for(int j=i+1;  j<str.length(); j++){
-                if(str.charAt(i)==str.charAt(j)) return false;
+        HashMap<Character, Boolean> checker = new HashMap<Character, Boolean>();
+        for(char c : str.toCharArray()){
+            if(checker.get(c)!=null){
+                return false;
             }
+            checker.put(c, true);
         }
         return true;
     }
 
     /** CtCI 1.2
-     Given two strings, write a method to decide if one is a permutation of the
-     other.
+     Given two strings, write a method to decide if one is a permutation of the other.
      */
     public static boolean isPermutation(String str1, String str2){
         char[] str1Sorted = str1.toCharArray();
@@ -78,5 +79,33 @@ public class ArrayUtils {
         return true;
     }
 
+    /** CtCI 1.5
+        There are three types of edits that can be performed on strings: insert a character,
+     remove a character, or replace a character. Given two strings, write a function to check if they are
+     one edit (or zero edits) away.
+     */
+    public static boolean isOneStepFromEdit(String str1, String str2){
+        if(str1.length()-str2.length()>1 || str2.length()-str1.length()>1) return false;
+        if (str1.equals(str2)) return true;
 
+        String strWithHighestLength;
+        String strWithLowestLength;
+        if(str1.length() > str2.length()){
+            strWithHighestLength = str1;
+            strWithLowestLength = str2;
+        }else{
+            strWithHighestLength = str2;
+            strWithLowestLength = str1;
+        }
+        boolean inconsistency = false;
+        int i=0, j=0;
+        for (i = 0; i < strWithHighestLength.length() - 1; i++, j++) {
+            if (strWithHighestLength.charAt(i) != strWithLowestLength.charAt(j)) {
+                if (inconsistency) return false;
+                inconsistency = true;
+                i++;
+            }
+        }
+        return true;
+    }
 }
