@@ -39,9 +39,14 @@ public class StringTests {
     public void isOneWayFromEditTest(){
         assertTrue(ArrayUtils.isOneStepFromEdit("pale", "ple"));
         assertTrue(ArrayUtils.isOneStepFromEdit("pales", "pale"));
-        assertTrue(ArrayUtils.isOneStepFromEdit("pale", "pake"));
+        assertTrue(ArrayUtils.isOneStepFromEdit("ales", "pales"));
+        assertTrue(ArrayUtils.isOneStepFromEdit("palef", "pakef"));
+        assertFalse(ArrayUtils.isOneStepFromEdit("palesa", "pale"));
+        assertFalse(ArrayUtils.isOneStepFromEdit("palesa", "pake"));
         assertFalse(ArrayUtils.isOneStepFromEdit("pale", "bake"));
         assertFalse(ArrayUtils.isOneStepFromEdit("pale", "paleta"));
+        assertFalse(ArrayUtils.isOneStepFromEdit("pales", "palpr"));
+        assertFalse(ArrayUtils.isOneStepFromEdit("pales", "plef"));
     }
 
     @Test
