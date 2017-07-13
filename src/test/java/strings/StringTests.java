@@ -35,4 +35,13 @@ public class StringTests {
         assertFalse(ArrayUtils.isPolindromePermutation("aAabb"));
     }
 
+    @Test
+    public void isOneWayFromEditTest(){
+        assertTrue(ArrayUtils.isOneStepFromEdit("pale", "ple"));
+        assertTrue(ArrayUtils.isOneStepFromEdit("pales", "pale"));
+        assertTrue(ArrayUtils.isOneStepFromEdit("pale", "pake"));
+        assertFalse(ArrayUtils.isOneStepFromEdit("pale", "bake"));
+        assertFalse(ArrayUtils.isOneStepFromEdit("pale", "paleta"));
+    }
+
 }
