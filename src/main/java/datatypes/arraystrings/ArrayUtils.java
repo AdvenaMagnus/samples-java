@@ -87,34 +87,21 @@ public class ArrayUtils {
      */
     public static boolean isOneStepFromEdit(String str1, String str2){
         if(str1.length()-str2.length()>1 || str2.length()-str1.length()>1) return false;
-        //if (str1.equals(str2)) return true;
 
-        if(str1.length()==str2.length()){
-            boolean inconsistency = false;
-            for(int i = 0; i< str1.length(); i++){
-                if(str1.charAt(i)!=str2.charAt(i)){
-                    if(inconsistency) return false;
-                    inconsistency = true;
-                }
-            }
+        if (str1.length() > str2.length()) {
+            return isOneStepFromEdit(str1, str2+" ", true);
         } else {
-            String strWithHighestLength;
-            String strWithLowestLength;
-            if (str1.length() > str2.length()) {
-                strWithHighestLength = str1;
-                strWithLowestLength = str2+" ";
-            } else {
-                strWithHighestLength = str2;
-                strWithLowestLength = str1+" ";
-            }
-            boolean inconsistency = false;
-            int i = 0, j = 0;
-            for (i = 0; i < strWithHighestLength.length(); i++, j++) {
-                if (strWithHighestLength.charAt(i) != strWithLowestLength.charAt(j)) {
-                    if (inconsistency) return false;
-                    inconsistency = true;
-                    i++;
-                }
+            return isOneStepFromEdit(str2, str1+" ", str1.length() != str2.length());
+        }
+    }
+
+    private static boolean isOneStepFromEdit(String strHighestLength, String strLowestLength, boolean isNotSameLength){
+        boolean inconsistency = false;
+        for (int i = 0, j = 0; i < strHighestLength.length(); i++, j++) {
+            if (strHighestLength.charAt(i) != strLowestLength.charAt(j)) {
+                if (inconsistency) return false;
+                inconsistency = true;
+                if (isNotSameLength) i++;
             }
         }
         return true;
