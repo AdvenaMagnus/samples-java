@@ -11,26 +11,21 @@ public class ParenthesesValidCheck {
     /** Check for validity string with parentheses
      * (<>) -> true, <(>) -> false etc.
      * */
-    public static boolean checkForValidPrentheses(String string){
+    public static boolean checkForValidPrentheses(String string) {
 
         IStack<Character> stack = new StackCustom<Character>();
-        boolean opened = false;
 
-        for(char c : string.toCharArray()){
-            if(c=='(' || c=='<'){
+        for (char c : string.toCharArray()) {
+            if (c == '(' || c == '<') {
                 stack.push(c);
-                opened=true;
             }
-            if(c==')' || c=='>'){
-                if(stack.isEmpty())return false;
-                if(stack.pop()!= reverseParenthes(c)){
+            if (c == ')' || c == '>') {
+                if (stack.isEmpty()) return false;
+                if (stack.pop() != reverseParenthes(c))
                     return false;
-                } else{
-                    opened = false;
-                }
             }
         }
-        return opened? false: true;
+        return stack.isEmpty();
     }
 
     private static char reverseParenthes(char c){

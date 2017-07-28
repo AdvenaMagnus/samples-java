@@ -18,5 +18,6 @@ public class ValidParenthesesCheckerTest {
         assertTrue(ParenthesesValidCheck.checkForValidPrentheses("()"));
         assertFalse(ParenthesesValidCheck.checkForValidPrentheses(")("));
         assertFalse(ParenthesesValidCheck.checkForValidPrentheses("<("));
+        assertFalse(ParenthesesValidCheck.checkForValidPrentheses("<()"));
     }
 }
