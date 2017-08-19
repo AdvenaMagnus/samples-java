@@ -64,6 +64,33 @@ public class Sorts {
         return merged;
     }
 
+    public static List<Integer> combsort(List<Integer> list){
+        int comb = list.size();
+        boolean sorted = false;
+
+        while (!sorted){
+            if(comb>1) {
+                comb= (int) (comb/1.3f);
+                //comb=((comb<<3)*205)>>11;
+            } else{
+                comb=1;
+                sorted=true;
+            }
+            for(int i=0, j=comb; j<list.size(); i++, j++){
+                if(list.get(i)>list.get(j)){
+                    swap(i, j, list);
+                    sorted=false;
+                }
+            }
+        }
+        return list;
+    }
+
+    private static void swap(int i, int j, List<Integer> list){
+        int temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
+    }
 
 
 }
