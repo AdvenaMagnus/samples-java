@@ -1,6 +1,23 @@
-target/
+HELP.md
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
-.idea/**/workspace.xml
-.idea/**/libraries
-.idea/**/tasks.xml
-.idea/dictionaries
+*.ipr
+out/
+
+trivia/build/
