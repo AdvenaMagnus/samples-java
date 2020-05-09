@@ -21,3 +21,5 @@ HELP.md
 out/
 
 trivia/build/
+microservices/api-gateway/build/
+microservices/realms/build/
